@@ -1,21 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 
-import Graphic = require("esri/Graphic");
 import Collection = require("esri/core/Collection");
-import Point = require("esri/geometry/Point");
 
 import { PointsModel } from './points.model';
 
 @Component({
   selector: 'attribute-display',
-  templateUrl: './app/attribute.component.html',
-  //providers: [PointsModel]
+  templateUrl: './app/attribute.component.html'
 })
 export class AttributeComponent implements OnInit {
   points: Collection;
-  constructor(private pointsModel:PointsModel) { }
+  constructor(private pointsModel: PointsModel) { }
 
-  ngOnInit() { 
+  ngOnInit() {
     this.points = this.pointsModel.getPointGraphics();
    }
 }
