@@ -7,9 +7,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __param = (this && this.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
 define(["require", "exports", '@angular/core', 'esri/Map', './points.model'], function (require, exports, core_1, Map, points_model_1) {
     "use strict";
     var MapService = (function () {
@@ -17,12 +14,10 @@ define(["require", "exports", '@angular/core', 'esri/Map', './points.model'], fu
             this.map = new Map({
                 basemap: 'topo'
             });
-            console.log("in map.service.ts");
             this.map.add(pointsModel.pointsLayer);
         }
         MapService = __decorate([
-            core_1.Injectable(),
-            __param(0, core_1.Inject(points_model_1.PointsModel)), 
+            core_1.Injectable(), 
             __metadata('design:paramtypes', [points_model_1.PointsModel])
         ], MapService);
         return MapService;

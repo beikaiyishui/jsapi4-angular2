@@ -19,7 +19,7 @@ define(["require", "exports", '@angular/core', './points.model'], function (requ
         AttributeComponent = __decorate([
             core_1.Component({
                 selector: 'attribute-display',
-                templateUrl: './app/attribute.component.html',
+                templateUrl: './app/attribute.component.html'
             }), 
             __metadata('design:paramtypes', [points_model_1.PointsModel])
         ], AttributeComponent);

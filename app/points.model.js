@@ -11,26 +11,26 @@ define(["require", "exports", '@angular/core', 'esri/layers/GraphicsLayer', 'esr
     "use strict";
     var PointsModel = (function () {
         function PointsModel() {
-            this._points = new Collection();
+            this.points = new Collection();
             this.pointsLayer = new GraphicsLayer();
-            this._points = this.pointsLayer.graphics;
+            this.points = this.pointsLayer.graphics;
         }
         PointsModel.prototype.addPoint = function (pointGraphic) {
-            this._points.add(pointGraphic);
+            this.points.add(pointGraphic);
         };
         PointsModel.prototype.addPoints = function (pointsGraphics) {
-            this._points.addMany(pointsGraphics);
+            this.points.addMany(pointsGraphics);
         };
         PointsModel.prototype.getPointGraphics = function () {
-            return this._points;
+            return this.points;
         };
         PointsModel.prototype.clear = function () {
-            this._points.removeAll();
+            this.points.removeAll();
         };
         PointsModel.prototype.getIndexSum = function () {
             var sum = 0;
-            if (this._points !== null) {
-                this._points.forEach(function (p) { return sum += p.attributes.index; });
+            if (this.points !== null) {
+                this.points.forEach(function (p) { return sum += p.attributes.index; });
             }
             return sum;
         };

@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-<<<<<<< HEAD
     "module": "amd",
-=======
-    "module": "system",
->>>>>>> master
     "moduleResolution": "node",
     "sourceMap": true,
     "emitDecoratorMetadata": true,
@@ -15,13 +11,9 @@
     "suppressImplicitAnyIndexErrors": true
   },
   "exclude": [
-<<<<<<< HEAD
-    "node_modules"
-=======
     "node_modules",
     "bower_components",
     "typings/main",
     "typings/main.d.ts"
->>>>>>> master
   ]
 }

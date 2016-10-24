@@ -7,18 +7,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-define(["require", "exports", '@angular/core', './map.component', './attribute.component', './points.model', 'esri/geometry/Point', 'esri/Graphic', 'esri/Color', 'esri/symbols/SimpleMarkerSymbol'], function (require, exports, core_1, map_component_1, attribute_component_1, points_model_1, Point, Graphic, Color, SimpleMarkerSymbol) {
+define(["require", "exports", '@angular/core', './points.model', 'esri/geometry/Point', 'esri/Graphic', 'esri/Color', 'esri/symbols/SimpleMarkerSymbol'], function (require, exports, core_1, points_model_1, Point, Graphic, Color, SimpleMarkerSymbol) {
     "use strict";
     var AppComponent = (function () {
         function AppComponent(pointsModel) {
             this.pointsModel = pointsModel;
-            this._pointIndex = 0;
-            this._pointLongitude = -82.43;
-            this._pointLatitude = 35.61;
-            this._defaultSymbol = new SimpleMarkerSymbol({
+            this.pointIndex = 0;
+            this.pointLongitude = -82.43;
+            this.pointLatitude = 35.61;
+            this.defaultSymbol = new SimpleMarkerSymbol({
                 style: 'circle',
                 size: 12,
-                color: new Color("#000000")
+                color: new Color('#000000')
             });
         }
         AppComponent.prototype.ngOnInit = function () {
@@ -27,19 +27,19 @@ define(["require", "exports", '@angular/core', './map.component', './attribute.c
             this.pointsModel.clear();
         };
         AppComponent.prototype.onAddClicked = function () {
-            this._pointIndex++;
-            this._pointLatitude += 0.001;
-            this._pointLongitude += 0.001;
+            this.pointIndex++;
+            this.pointLatitude += 0.001;
+            this.pointLongitude += 0.001;
             var g = new Graphic({
                 geometry: new Point({
-                    x: this._pointLongitude,
-                    y: this._pointLatitude,
+                    x: this.pointLongitude,
+                    y: this.pointLatitude,
                     spatialReference: 4326
                 }),
                 attributes: {
-                    index: this._pointIndex
+                    index: this.pointIndex
                 },
-                symbol: this._defaultSymbol
+                symbol: this.defaultSymbol
             });
             this.pointsModel.addPoint(g);
         };
@@ -48,7 +48,6 @@ define(["require", "exports", '@angular/core', './map.component', './attribute.c
         };
         AppComponent = __decorate([
             core_1.Component({
-                directives: [map_component_1.MapComponent, attribute_component_1.AttributeComponent],
                 selector: 'my-app',
                 templateUrl: './app/app.component.html'
             }), 

@@ -1,7 +1,7 @@
 import { PointsModel } from './points.model';
 
-import Graphic from 'esri/Graphic';
-import Point from 'esri/geometry/Point';
+import Graphic = require('esri/Graphic');
+import Point = require('esri/geometry/Point');
 
 describe('PointsModel tests', () => {
   let mockPointGraphic = new Graphic({
