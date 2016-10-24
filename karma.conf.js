@@ -36,7 +36,7 @@ module.exports = function (config) {
       // ************ END esri load ***************
 
       './karma-test-shim.js',
-      './app/*.spec.ts',
+      {pattern: './app/**/*.spec.ts', watched: false}
     ],
 
     preprocessors: {

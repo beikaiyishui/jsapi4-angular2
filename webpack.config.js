@@ -11,23 +11,9 @@ function root(args) {
 
 module.exports = {
   entry: {
-    main: [
-      './app/main.ts' // entry point for your application code
-    ],
-    vendor: [
-      // put your third party libs here
-      "core-js",
-      "reflect-metadata", // order is important here
-      "rxjs",
-      "zone.js",
-      '@angular/core',
-      "@angular/compiler",
-      "@angular/core",
-      "@angular/http",
-      "@angular/platform-browser",
-      "@angular/platform-browser-dynamic",
-      "@angular/router"
-    ]
+    //polyfills: './app/polyfills.ts',
+    main: './app/main.ts',
+    vendor: './app/vendor.ts'
   },
   output: {
     filename: './dist/[name].bundle.js',
@@ -35,7 +21,7 @@ module.exports = {
     libraryTarget: "amd"
   },
   resolve: {
-    extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js']
+    extensions: ['.ts', '.tsx', '.js', 'json']
   },
   module: {
     loaders: [
@@ -48,6 +34,11 @@ module.exports = {
       {
         test: /\.css$/,
         loader: "style-loader!css-loader"
+      },
+      // json
+      {
+        test: /\.json$/, 
+        loader: 'json'
       }
     ]
   },
@@ -71,3 +62,24 @@ module.exports = {
   ],
   devtool: 'source-map'
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
