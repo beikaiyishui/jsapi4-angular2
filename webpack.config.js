@@ -7,8 +7,6 @@ function root(args) {
   return path.join.apply(path, [__dirname].concat(args));
 }
 
-
-
 module.exports = {
   entry: {
     //polyfills: './app/polyfills.ts',
@@ -25,6 +23,7 @@ module.exports = {
   },
   module: {
     loaders: [
+      // typescript
       {
         test: /\.tsx?$/,
         loader: 'ts-loader',
@@ -37,19 +36,26 @@ module.exports = {
       },
       // json
       {
-        test: /\.json$/, 
+        test: /\.json$/,
         loader: 'json'
       }
     ]
   },
   plugins: [
+    // https://github.com/angular/angular/issues/11580
+    new webpack.ContextReplacementPlugin(
+      // The (\\|\/) piece accounts for path separators in *nix and Windows
+      /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
+      root('./src') // location of your src
+    ),
+
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       minChunks: Infinity
     })
   ],
   externals: [
-    function(context, request, callback) {
+    function (context, request, callback) {
       if (/^dojo/.test(request) ||
         /^dojox/.test(request) ||
         /^dijit/.test(request) ||
@@ -62,24 +68,3 @@ module.exports = {
   ],
   devtool: 'source-map'
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

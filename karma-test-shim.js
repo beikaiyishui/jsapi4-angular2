@@ -1,4 +1,3 @@
-
 Error.stackTraceLimit = Infinity;
 
 require('core-js/client/shim');
