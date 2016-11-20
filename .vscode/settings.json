@@ -23,4 +23,6 @@
   "recommendations": [
     "eg2.tslint"
   ]
+,
+"typescript.tsdk": "./node_modules/typescript/lib"
 }

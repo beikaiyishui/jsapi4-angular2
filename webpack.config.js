@@ -19,15 +19,14 @@ module.exports = {
     libraryTarget: "amd"
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', 'json']
+    extensions: ['', '.ts', '.tsx', '.js', 'json']
   },
   module: {
     loaders: [
       // typescript
       {
         test: /\.tsx?$/,
-        loader: 'ts-loader',
-        exclude: ''
+        loader: 'ts-loader'
       },
       // css
       {
@@ -37,7 +36,7 @@ module.exports = {
       // json
       {
         test: /\.json$/,
-        loader: 'json'
+        loader: 'json-loader'
       }
     ]
   },
