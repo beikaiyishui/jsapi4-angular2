@@ -10,7 +10,6 @@ import 'core-js';
 import 'reflect-metadata';
 import 'rxjs';
 import 'zone.js';
-// import '@angularclass/hmr';
 
 // Other vendors for example jQuery, Lodash or Bootstrap
 // You can import js, ts, css, sass, ...
